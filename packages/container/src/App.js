@@ -19,6 +19,12 @@ const generateClassName = createGenerateClassName({
 export default () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
+  useEffect(() => {
+    if (isSignedIn) {
+      history.push("/dashboard");
+    }
+  }, [isSignedIn]);
+
   return (
     <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>
